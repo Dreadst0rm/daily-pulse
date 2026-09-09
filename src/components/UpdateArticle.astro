@@ -1,0 +1,69 @@
+---
+import { formatDisplayDate, type UpdateEntry } from "../lib/updates";
+
+interface Props {
+  update: UpdateEntry;
+}
+
+const { update } = Astro.props;
+const { date, title, summary, tone, sections, bottomLine } = update.data;
+---
+
+<article>
+  <p class="kicker">
+    <time datetime={date}>{formatDisplayDate(date)}</time>
+    {tone && <span> · {tone}</span>}
+  </p>
+  <h1>{title}</h1>
+
+  <section class="callout" aria-labelledby="summary-heading">
+    <h2 id="summary-heading" class="visually-hidden">Summary</h2>
+    <p>{summary}</p>
+  </section>
+
+  {
+    sections.map((section) => (
+      <section>
+        <h2>{section.heading}</h2>
+        <ul>
+          {section.bullets.map((bullet) => (
+            <li>{bullet}</li>
+          ))}
+        </ul>
+        {section.sources && section.sources.length > 0 && (
+          <div>
+            <p class="sources-label">Sources</p>
+            <ul class="sources">
+              {section.sources.map((source) => (
+                <li>
+                  <a href={source.url} rel="noopener noreferrer">
+                    {source.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </section>
+    ))
+  }
+
+  <section class="bottom-line" aria-labelledby="bottom-line-heading">
+    <h2 id="bottom-line-heading">Bottom line</h2>
+    <p>{bottomLine}</p>
+  </section>
+</article>
+
+<style>
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>

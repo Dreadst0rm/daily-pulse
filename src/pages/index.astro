@@ -1,0 +1,66 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../lib/site";
+import { formatDisplayDate, getUpdates, updatePath } from "../lib/updates";
+
+const updates = await getUpdates();
+const latest = updates[0];
+const archive = updates.slice(1);
+---
+
+<BaseLayout title={site.name} description={site.description} current="home">
+  <header class="page-section">
+    <p class="kicker">{site.tagline}</p>
+    <h1>{site.name}</h1>
+    <p class="lede">
+      One file a day. No CMS. Grok Bot appends JSON; the layout stays put.
+    </p>
+  </header>
+
+  {
+    latest ? (
+      <section class="page-section" aria-labelledby="latest-heading">
+        <h2 id="latest-heading">Latest</h2>
+        <a class="card" href={updatePath(latest.data.date)}>
+          <p class="kicker">
+            <time datetime={latest.data.date}>{formatDisplayDate(latest.data.date)}</time>
+            {latest.data.tone && <span> · {latest.data.tone}</span>}
+          </p>
+          <h3 class="serif">{latest.data.title}</h3>
+          <p>{latest.data.summary}</p>
+        </a>
+      </section>
+    ) : (
+      <section class="page-section" aria-labelledby="empty-heading">
+        <h2 id="empty-heading">No updates yet</h2>
+        <p class="muted">
+          Add <code>content/updates/YYYY-MM-DD.json</code> and rebuild. See the README
+          section “How Grok Bot adds a daily update.”
+        </p>
+      </section>
+    )
+  }
+
+  <section class="page-section" aria-labelledby="archive-heading">
+    <h2 id="archive-heading">Earlier updates</h2>
+    {
+      archive.length > 0 ? (
+        <ol class="archive">
+          {archive.map((update) => (
+            <li>
+              <a class="card" href={updatePath(update.data.date)}>
+                <p class="kicker">
+                  <time datetime={update.data.date}>{formatDisplayDate(update.data.date)}</time>
+                </p>
+                <h3 class="serif">{update.data.title}</h3>
+                <p>{update.data.summary}</p>
+              </a>
+            </li>
+          ))}
+        </ol>
+      ) : (
+        <p class="muted">No earlier updates. The archive will grow as new days are added.</p>
+      )
+    }
+  </section>
+</BaseLayout>

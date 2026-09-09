@@ -1,0 +1,8 @@
+{
+  "json.schemas": [
+    {
+      "fileMatch": ["/content/updates/*.json"],
+      "url": "./.astro/collections/updates.schema.json"
+    }
+  ]
+}

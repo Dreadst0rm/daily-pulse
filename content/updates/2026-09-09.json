@@ -1,0 +1,112 @@
+{
+  "date": "2026-09-09",
+  "title": "NetBird vs Defguard vs Headscale",
+  "summary": "Three WireGuard control planes compared for SMB interconnect with Authentik + Coolify. NetBird remains the best mesh fit; Defguard is a hub VPN with connect-time MFA; Headscale is a lean Tailscale-compatible control server.",
+  "tone": "recommendation",
+  "sections": [
+    {
+      "heading": "What each is",
+      "bullets": [
+        "NetBird: full mesh platform (own clients + control plane), P2P WireGuard with relay fallback, routing peers and exit nodes.",
+        "Defguard: hub-and-spoke WireGuard remote access + IAM; clients connect to location gateways, not a Tailscale-style any-to-any mesh.",
+        "Headscale: open-source Tailscale control server only; uses official Tailscale clients for the data path."
+      ],
+      "sources": [
+        {
+          "label": "NetBird — how it works",
+          "url": "https://docs.netbird.io/about-netbird/how-netbird-works"
+        },
+        {
+          "label": "Defguard architecture",
+          "url": "https://docs.defguard.net/in-depth/architecture"
+        },
+        {
+          "label": "Headscale features",
+          "url": "https://juanfont.github.io/headscale/0.26.0/about/features/"
+        }
+      ]
+    },
+    {
+      "heading": "Pros / cons",
+      "bullets": [
+        "NetBird — Pros: mesh for people/servers/sites; first-class Authentik; built-in UI; Coolify netbird-client one-click. Cons: heavier than Headscale; server not one-click on Coolify; HA/SCIM need commercial self-host.",
+        "Defguard — Pros: per-connection WireGuard MFA; private Core; enrollment UX; gateway/OPNsense story. Cons: hub-spoke not mesh; external OIDC/Authentik and firewall ACLs need Business tier; no Coolify template; smaller community.",
+        "Headscale — Pros: lean; Tailscale client polish; BSD-3; Authentik officially supported; subnet/exit parity with Tailscale base. Cons: no first-party UI; OIDC groups cannot drive ACLs; depends on Tailscale clients; weaker day-2 SMB admin UX."
+      ],
+      "sources": [
+        {
+          "label": "NetBird Authentik IdP",
+          "url": "https://docs.netbird.io/selfhosted/identity-providers"
+        },
+        {
+          "label": "Defguard external OpenID",
+          "url": "https://docs.defguard.net/features/external-openid-providers"
+        },
+        {
+          "label": "Headscale OIDC / Authentik",
+          "url": "https://headscale.net/0.27.1/ref/oidc/"
+        },
+        {
+          "label": "Coolify Netbird-Client",
+          "url": "https://coolify.io/docs/services/netbird-client"
+        }
+      ]
+    },
+    {
+      "heading": "Recommendation",
+      "bullets": [
+        "1) NetBird for SMB interconnect + Authentik + Coolify.",
+        "2) Headscale if Tailscale clients + minimal control-plane ops matter more than UI.",
+        "3) Defguard only if connect-time MFA and classic site gateways outweigh mesh needs."
+      ],
+      "sources": [
+        {
+          "label": "NetBird self-host quickstart",
+          "url": "https://docs.netbird.io/selfhosted/selfhosted-quickstart"
+        },
+        {
+          "label": "Defguard pricing (tiers)",
+          "url": "https://defguard.net/pricing/"
+        }
+      ]
+    },
+    {
+      "heading": "Overheard — Astra Critical-cyber and Coxon exit",
+      "bullets": [
+        "BleepingComputer: GPT-6 Astra is OpenAI’s first broadly deployed Critical-cyber model; found zero-days in evals; harder to monitor than Sol.",
+        "POLITICO: Jacob Coxon resigns from Anthropic over “gambling with our lives” toward self-improving SI; Hubinger concurs (>10% extinction risk).",
+        "Korea Herald: Samsung–Mistral on-prem chip design/manufacturing AI partnership (beyond Series D).",
+        "HN: “I resigned from Anthropic today” — 608 points, ~821 comments.",
+        "HN: POLITICO write-up of Coxon exit (~70 / ~93).",
+        "HN: BBC Hubinger piece (~33 / ~85)."
+      ],
+      "sources": [
+        {
+          "label": "BleepingComputer — Astra Critical-cyber",
+          "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-says-gpt-6-astra-can-find-zero-days-but-is-also-harder-to-monitor/"
+        },
+        {
+          "label": "POLITICO — Coxon resigns Anthropic",
+          "url": "https://www.politico.eu/article/anthropic-openai-researcher-jacob-coxon-warns-ai-could-kill-humans/"
+        },
+        {
+          "label": "Korea Herald — Samsung–Mistral chip AI",
+          "url": "https://www.koreaherald.com/article/10866843"
+        },
+        {
+          "label": "HN — Coxon resignation",
+          "url": "https://news.ycombinator.com/item?id=49619227"
+        },
+        {
+          "label": "HN — POLITICO Coxon",
+          "url": "https://news.ycombinator.com/item?id=49623306"
+        },
+        {
+          "label": "HN — BBC Hubinger",
+          "url": "https://news.ycombinator.com/item?id=49624255"
+        }
+      ]
+    }
+  ],
+  "bottomLine": "Stick with NetBird unless you need Defguard’s per-connect MFA/gateway model or Headscale’s Tailscale-client minimalism. Overheard: Astra crossed Critical-cyber; Coxon left Anthropic over SI risk."
+}

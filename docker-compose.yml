@@ -1,0 +1,8 @@
+services:
+  digest:
+    build:
+      context: .
+      args:
+        PUBLIC_SITE_URL: http://127.0.0.1:43180
+    ports:
+      - "43180:80"

@@ -1,0 +1,57 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import UpdateArticle from "../../components/UpdateArticle.astro";
+import { getUpdates, updatePath, type UpdateEntry } from "../../lib/updates";
+
+export async function getStaticPaths() {
+  const updates = await getUpdates();
+  return updates.map((update) => ({
+    params: { date: update.data.date },
+    props: { update },
+  }));
+}
+
+interface Props {
+  update: UpdateEntry;
+}
+
+const { update } = Astro.props;
+const updates = await getUpdates();
+const index = updates.findIndex((entry) => entry.id === update.id);
+const newer = index > 0 ? updates[index - 1] : undefined;
+const older = updates[index + 1];
+---
+
+<BaseLayout title={update.data.title} description={update.data.summary} current="update">
+  <UpdateArticle update={update} />
+
+  <nav class="pager" aria-label="Adjacent updates">
+    {
+      newer && (
+        <a href={updatePath(newer.data.date)}>
+          Newer: {newer.data.title}
+        </a>
+      )
+    }
+    <a href="/">All updates</a>
+    {
+      older && (
+        <a href={updatePath(older.data.date)}>
+          Older: {older.data.title}
+        </a>
+      )
+    }
+  </nav>
+</BaseLayout>
+
+<style>
+  .pager {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 2.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.95rem;
+  }
+</style>

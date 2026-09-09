@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../lib/site";
+---
+
+<BaseLayout title="About" description={`How ${site.name} is maintained.`} current="about">
+  <p class="kicker">About</p>
+  <h1>One JSON file per day</h1>
+  <p class="lede">
+    {site.name} publishes short research and reception briefs for SMB operations.
+    The pages do not change when a new day lands. The content file does.
+  </p>
+
+  <h2>How it is maintained</h2>
+  <p>
+    Grok Bot (or anyone else) adds a daily update by creating
+    <code>content/updates/YYYY-MM-DD.json</code>. The filename and the
+    <code>date</code> field must match. A Zod schema in
+    <code>src/content.config.ts</code> validates the shape at build time. Bad
+    content fails the build instead of shipping a broken page.
+  </p>
+  <p>
+    There is no CMS, database, or login. Layout, typography, and routes stay in
+    the Astro project. A new day is never a reason to edit a component.
+  </p>
+
+  <h2>What an update contains</h2>
+  <ul class="about-list">
+    <li>A title and a short summary (the TL;DR callout on the detail page)</li>
+    <li>Optional tone, for readers who want the stance in one word</li>
+    <li>Sections with a heading, bullets, and optional labeled sources</li>
+    <li>A bottom line that a busy operator can act on</li>
+  </ul>
+
+  <h2>How to read it</h2>
+  <p>
+    Home shows the latest brief and a chronological archive. Each day has a
+    permalink at <code>/updates/YYYY-MM-DD/</code>. An RSS feed is at
+    <a href="/rss.xml">/rss.xml</a>. Sources are public coverage links, not
+    invented metrics.
+  </p>
+</BaseLayout>
