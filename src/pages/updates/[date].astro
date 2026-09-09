@@ -33,7 +33,7 @@ const older = updates[index + 1];
         </a>
       )
     }
-    <a href="/">All updates</a>
+    <a class="pager-home" href="/">All updates</a>
     {
       older && (
         <a href={updatePath(older.data.date)}>
@@ -43,15 +43,3 @@ const older = updates[index + 1];
     }
   </nav>
 </BaseLayout>
-
-<style>
-  .pager {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-top: 2.5rem;
-    padding-top: 1.25rem;
-    border-top: 1px solid var(--rule);
-    font-size: 0.95rem;
-  }
-</style>

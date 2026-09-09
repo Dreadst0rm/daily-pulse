@@ -21,7 +21,7 @@ const archive = updates.slice(1);
     latest ? (
       <section class="page-section" aria-labelledby="latest-heading">
         <h2 id="latest-heading">Latest</h2>
-        <a class="card" href={updatePath(latest.data.date)}>
+        <a class="card card-latest" href={updatePath(latest.data.date)}>
           <p class="kicker">
             <time datetime={latest.data.date}>{formatDisplayDate(latest.data.date)}</time>
             {latest.data.tone && <span> · {latest.data.tone}</span>}
