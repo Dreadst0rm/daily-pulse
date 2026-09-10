@@ -64,45 +64,25 @@
     {
       "heading": "Overheard — picks of the day",
       "bullets": [
-        "Anthropic publishes alignment assessment of four Claude cyber-eval breakouts (adds a missed Jan Opus 4.6 case) and brings in METR for an independent 8-week probe.",
-        "CNA/Reuters: Anthropic discloses fourth AI hacking incident missed in earlier review; METR gets broad transcript/staff access.",
-        "DOJ investigating whether Nvidia structured its ~$20B Groq licensing deal to avoid antitrust review (NYT/Bloomberg).",
-        "TNW: DOJ probe asks when a licence + hiring spree becomes a de facto acquisition — Groq lost founder/engineers after Nvidia deal.",
-        "OpenAI follow-up: GPT-6 Astra framed for professional work / ChatGPT Work / Codex; cost-per-task pitch at $10/$50 per M tokens.",
-        "Bloomberg: DOJ probes Nvidia’s tie-up with Groq on antitrust concerns (Sep 9 evening).",
-        "Copilot vs Cursor vs Windsurf comparison (Sep 9) amid OpenAI–Cursor cutoff / DataX ownership context."
+        "ENISA testing GPT-6 Astra alongside Anthropic Mythos 5 after Commission confirmation; Astra access ~1 week post-launch vs months for Mythos.",
+        "Reuters: ENISA granted Mythos 5 access and is testing it; also granted GPT-6 Astra access.",
+        "Raschka on GPT-6 Astra looped transformers vs hidden-reasoning rumors; ~470-pt HN thread."
       ],
       "sources": [
         {
-          "label": "Anthropic — cyber alignment assessment",
-          "url": "https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents"
+          "label": "TNW — ENISA testing Astra and Mythos 5",
+          "url": "https://thenextweb.com/news/eu-cybersecurity-agency-is-now-testing-mythos-5-and-gpt-6-astra-the-commission-says"
         },
         {
-          "label": "CNA — Anthropic fourth incident",
-          "url": "https://www.channelnewsasia.com/business/anthropic-discloses-fourth-ai-hacking-incident-missed-in-earlier-review-6373916"
+          "label": "Reuters — ENISA Mythos 5 and Astra access",
+          "url": "https://www.reuters.com/technology/eus-cybersecurity-agency-granted-access-mythos-5-ai-model-commission-says-2026-09-10/"
         },
         {
-          "label": "NYT — Nvidia–Groq DOJ",
-          "url": "https://www.nytimes.com/2026/09/09/business/nvidia-groq-antitrust.html"
-        },
-        {
-          "label": "TNW — Nvidia–Groq licensing probe",
-          "url": "https://thenextweb.com/news/doj-nvidia-groq-licensing-antitrust-review"
-        },
-        {
-          "label": "OpenAI — GPT-6 Astra for work",
-          "url": "https://openai.com/index/gpt-6-astra-next-generation-work/"
-        },
-        {
-          "label": "Bloomberg — Nvidia–Groq antitrust",
-          "url": "https://www.bloomberg.com/news/articles/2026-09-10/doj-probes-nvidia-s-license-deal-with-groq-on-antitrust-concerns"
-        },
-        {
-          "label": "Copilot vs Cursor vs Windsurf",
-          "url": "https://theword360.com/2026/09/09/github-copilot-vs-cursor-vs-windsurf/"
+          "label": "HN — Raschka on Astra looped transformers",
+          "url": "https://news.ycombinator.com/item?id=49627370"
         }
       ]
     }
   ],
-  "bottomLine": "Day to day use the mobile app; at work use Slack + @Cursor + a listener routine; for automation use webhooks or GitHub/Slack events — optionally via n8n on Coolify. Overheard picks: Anthropic cyber disclosure, Nvidia–Groq DOJ, Astra-for-work packaging, and coding-tool comparisons."
+  "bottomLine": "Day to day use the mobile app; at work use Slack + @Cursor + a listener routine; for automation use webhooks or GitHub/Slack events — optionally via n8n on Coolify. Overheard picks: ENISA testing Astra/Mythos 5, and Raschka’s HN thread on Astra architecture."
 }
