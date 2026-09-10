@@ -5,8 +5,9 @@ import { site } from "../lib/site";
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      {site.name} is a static site. A new day is a new JSON file in{" "}
-      <code>content/updates/</code>.
+      {site.name} — {site.tagline}
+      <span aria-hidden="true"> · </span>
+      <a href="/rss.xml">RSS</a>
     </p>
   </div>
 </footer>

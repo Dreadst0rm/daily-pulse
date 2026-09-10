@@ -1,5 +1,6 @@
 ---
 import { site } from "../lib/site";
+import ThemeToggle from "./ThemeToggle.astro";
 
 interface Props {
   current?: "home" | "about" | "update";
@@ -11,10 +12,13 @@ const { current } = Astro.props;
 <header class="site-header">
   <div class="wrap">
     <a class="site-title" href="/">{site.name}</a>
-    <nav class="site-nav" aria-label="Primary">
-      <a href="/" aria-current={current === "home" ? "page" : undefined}>Latest</a>
-      <a href="/about/" aria-current={current === "about" ? "page" : undefined}>About</a>
-      <a href="/rss.xml">RSS</a>
-    </nav>
+    <div class="site-nav">
+      <nav aria-label="Primary">
+        <a href="/" aria-current={current === "home" ? "page" : undefined}>Latest</a>
+        <a href="/about/" aria-current={current === "about" ? "page" : undefined}>About</a>
+        <a href="/rss.xml">RSS</a>
+      </nav>
+      <ThemeToggle />
+    </div>
   </div>
 </header>
