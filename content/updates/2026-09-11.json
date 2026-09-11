@@ -1,7 +1,7 @@
 {
   "date": "2026-09-11",
-  "title": "Coolify hardening, NetBird-on-Coolify ops, and hosting Daily Digest",
-  "summary": "Practical runbook notes: keep Coolify patched and locked down, operate NetBird ZTNA safely on Coolify (mounts, Cloudflare DNS-only, no exit-node on the VPS), and host the Astro Daily Digest as a Dockerfile static app.",
+  "title": "Coolify hardening, observability landscape, and Digest hosting",
+  "summary": "Practical Coolify/NetBird/Digest hosting runbook plus modern observability: OpenTelemetry + OTLP, Prometheus scrapes, remote_write LTS (VictoriaMetrics/Mimir), and Grafana vs SigNoz for SMB.",
   "tone": "practical",
   "sections": [
     {
@@ -54,6 +54,50 @@
       ]
     },
     {
+      "heading": "What’s standard in 2026",
+      "bullets": [
+        "Instrument with OpenTelemetry SDKs; ship OTLP (gRPC 4317 / HTTP 4318) via OTel Collector or Grafana Alloy.",
+        "Prometheus exposition / OpenMetrics text still the scrape wire format; OpenMetrics 2.0 is experimental.",
+        "Prometheus is still used for scrape + PromQL; not as the sole long-term TSDB — remote_write to VictoriaMetrics (SMB) or Mimir (scale).",
+        "Logs: Loki (cheap, object storage) or ClickHouse (SigNoz). Traces: Tempo (OTLP-first) or SigNoz."
+      ],
+      "sources": [
+        { "label": "OTLP specification", "url": "https://opentelemetry.io/docs/specs/otlp/" },
+        { "label": "OpenMetrics 2.0 (experimental)", "url": "https://prometheus.io/docs/specs/om/open_metrics_spec_2_0/" },
+        { "label": "Grafana Mimir", "url": "https://grafana.com/oss/mimir/" },
+        { "label": "VictoriaMetrics single-node", "url": "https://docs.victoriametrics.com/victoriametrics/single-server-victoriametrics/" }
+      ]
+    },
+    {
+      "heading": "Pros / cons for Coolify SMB",
+      "bullets": [
+        "SigNoz — Pros: one OTLP endpoint, correlated metrics/logs/traces. Cons: ClickHouse footprint; install path via Foundry.",
+        "Grafana + VictoriaMetrics + Loki — Pros: incremental, PromQL comfort, Coolify-friendly. Cons: correlation is configured, not automatic.",
+        "Full LGTM (Mimir+Loki+Tempo distributed) — Pros: scale. Cons: overkill ops for SMB day-1.",
+        "Datadog/NR/Dynatrace — Pros: fastest UX. Cons: cost; stay on OTel if you want an exit path."
+      ],
+      "sources": [
+        { "label": "SigNoz architecture", "url": "https://signoz.io/docs/architecture/" },
+        { "label": "SigNoz Docker install", "url": "https://signoz.io/docs/install/docker/" },
+        { "label": "Grafana Tempo + OTel Collector", "url": "https://grafana.com/docs/tempo/latest/set-up-for-tracing/instrument-send/set-up-collector/otel-collector/" },
+        { "label": "Loki retention", "url": "https://grafana.com/docs/loki/latest/operations/storage/retention/" },
+        { "label": "Why Grafana Alloy", "url": "https://grafana.com/docs/grafana-cloud/observe-and-act/send-data/alloy/introduction/why-alloy/" }
+      ]
+    },
+    {
+      "heading": "Recommendation",
+      "bullets": [
+        "Standardize on OTel in apps; keep Prometheus exporters for infra.",
+        "Traces+logs+metrics soon → start SigNoz on a dedicated host.",
+        "Metrics-first / Grafana comfort → Grafana + VictoriaMetrics + Loki; add Tempo later; skip full Mimir until needed.",
+        "Long-term: explicit retention; MinIO/S3 when adopting Loki/Tempo/Mimir seriously; control cardinality early."
+      ],
+      "sources": [
+        { "label": "OTLP specification", "url": "https://opentelemetry.io/docs/specs/otlp/" },
+        { "label": "VictoriaMetrics single-node", "url": "https://docs.victoriametrics.com/victoriametrics/single-server-victoriametrics/" }
+      ]
+    },
+    {
       "heading": "Overheard — picks of the day",
       "bullets": [
         "InfoQ: GPT-6 Astra coding/computer-use; Critical-cyber; harder-to-monitor reasoning",
@@ -77,5 +121,5 @@
       ]
     }
   ],
-  "bottomLine": "Harden Coolify like a control plane, run NetBird on Coolify with safe mounts and no VPS exit-node, and keep Daily Digest as a static Dockerfile deploy fed by JSON updates. Overheard: Astra capacity/critique, Anthropic misuse blocks, Altman pacing, RSI warnings, and ChatGPT Ads."
+  "bottomLine": "Harden Coolify like a control plane, run NetBird on Coolify with safe mounts and no VPS exit-node, and keep Daily Digest as a static Dockerfile deploy fed by JSON updates. Modern observability is OTel + Prometheus scrapes + remote_write LTS + Grafana or SigNoz — Prometheus isn’t dead; local-only Prometheus as your archive is."
 }
