@@ -1,39 +1,63 @@
 {
   "date": "2026-09-15",
-  "title": "AI maturity teaser, Databricks pattern, WireGuard control planes, guarded AIOps",
-  "summary": "Four Ed-selected topics: classical ML did not die — enterprise AI’s center of gravity shifted toward entities, relationships, and governed meaning (public teaser); Databricks’ Metric Views → Genie Ontology → coworkers story as a reference future pattern (not a buy-Databricks pitch); NetBird vs Defguard vs Headscale for WireGuard control planes (NetBird first for Authentik + Coolify); guarded AIOps as closing the loop with human gates — not unsupervised self-heal. Overheard: Salesforce/Nvidia Koa, Anthropic kill switches, OpenAI Glass Imaging, Ollama, Grab LLM-Kit.",
+  "title": "AI maturity shift, Databricks pattern, WireGuard control planes, guarded AIOps",
+  "summary": "Four Ed-selected topics: classical ML did not die — enterprise AI’s center of gravity is moving toward entities, relationships, and governed meaning; Databricks’ Metric Views → Genie Ontology → coworkers story as a reference future pattern (teach it, don’t buy one vendor); NetBird vs Defguard vs Headscale for WireGuard control planes (NetBird first for Authentik + Coolify); guarded AIOps that closes the loop with human gates — not unsupervised self-heal. Overheard: Salesforce/Nvidia Koa, Anthropic kill switches, OpenAI Glass Imaging, Ollama, Grab LLM-Kit.",
   "tone": "recommendation",
   "sections": [
     {
-      "heading": "AI maturity: classical ML → ontology & relationships (teaser)",
+      "heading": "AI maturity: classical ML → ontology & relationships",
       "bullets": [
-        "Nuanced thesis: classical ML did not die — tree ensembles and anomaly scores still win many needle-in-haystack jobs. What shifted is ambition: from feature-table scoring to entities, relationships, and governed meaning GenAI can be held accountable to.",
-        "Two buyer pains (public frame): old AI — score dashboards when investigators need join paths across silos; new AI — copilots / naive RAG without shared vocabulary → hallucinations, wrong grain, PoC purgatory.",
-        "Mid-market glance: steep enterprise ontology platforms vs shallow auto-GraphRAG — the gap is relationship literacy and ontology-lite practices, not another horizontal “AI platform.”",
-        "Free takeaway: keep classical ML where scores beat explanations; invest meaning/relationships where multi-hop GenAI fails — not “replace all ML with graphs.”",
-        "Paywall: Digest stays teaser-only. Starter Pack (primer, checklist, scorecard) and deeper guides live on https://secure.efortune.tech — members only."
+        "Classical ML did not die — tree ensembles and anomaly scores still win many needle-in-haystack jobs. What’s changing is ambition: from feature-table scoring to entities, relationships, and governed meaning GenAI can be held accountable to.",
+        "Two pains that still burn budget: old AI — score dashboards when investigators need join paths across silos; new AI — copilots / naive RAG without shared vocabulary → hallucinations, wrong grain, PoC purgatory.",
+        "Mid-market reality: steep enterprise ontology platforms vs shallow auto-GraphRAG. The edge is relationship literacy and ontology-lite practices — not another horizontal “AI platform.”",
+        "Move now: keep classical ML where scores beat explanations; invest meaning/relationships where multi-hop GenAI fails — not “replace all ML with graphs.”",
+        "Want the Starter Pack — primer, practice checklist, and relationship scorecard that turn this into next-week action? It’s waiting on https://secure.efortune.tech"
       ],
       "sources": [
-        {"label": "Microsoft Research — GraphRAG on GitHub", "url": "https://www.microsoft.com/en-us/research/blog/graphrag-new-tool-for-complex-data-discovery-now-on-github/"},
-        {"label": "W3C OWL 2 Overview", "url": "https://www.w3.org/TR/owl-overview/"},
-        {"label": "Enterprise Knowledge — AI without a semantic layer", "url": "https://enterprise-knowledge.com/where-ai-is-failing-organizations-without-a-semantic-layer/"},
-        {"label": "Members — Secure library (paid)", "url": "https://secure.efortune.tech"}
+        {
+          "label": "Microsoft Research — GraphRAG on GitHub",
+          "url": "https://www.microsoft.com/en-us/research/blog/graphrag-new-tool-for-complex-data-discovery-now-on-github/"
+        },
+        {
+          "label": "W3C OWL 2 Overview",
+          "url": "https://www.w3.org/TR/owl-overview/"
+        },
+        {
+          "label": "Enterprise Knowledge — AI without a semantic layer",
+          "url": "https://enterprise-knowledge.com/where-ai-is-failing-organizations-without-a-semantic-layer/"
+        },
+        {
+          "label": "Secure — AI Maturity Starter Pack",
+          "url": "https://secure.efortune.tech/series/ai-maturity/"
+        }
       ]
     },
     {
-      "heading": "Databricks ontology-future pattern — teaser only",
+      "heading": "Databricks ontology-future pattern — what the market is building",
       "bullets": [
-        "Market-direction story (not a SKU pitch): put governed meaning at the data layer, then use a living context graph so AI coworkers inherit governance — semantics upstream, agents downstream.",
-        "Pattern in one line: human-modeled metrics/definitions → inferred context with authority and permissions → coworkers/agents on that unified context (Databricks names this Metric Views / Genie Ontology / Genie One).",
-        "Why it fits dual-stack: that pattern grounds agents; it does not replace classical ML scores.",
-        "Mid-market note: teach the pattern without requiring a Lakehouse — Fabric, Bedrock GraphRAG, and Palantir are parallel futures; buyers still need ontology-lite packaging.",
-        "Paywall: full companion chapter (constitution / living graph / coworkers translations) is on Secure — not Digest."
+        "Where the market is pointing: put governed meaning at the data layer, then use a living context graph so AI coworkers inherit governance — semantics upstream, agents downstream.",
+        "The pattern in one line: human-modeled metrics/definitions → inferred context with authority and permissions → coworkers/agents on that unified context (Databricks names this Metric Views / Genie Ontology / Genie One).",
+        "Why dual-stack still wins: that pattern grounds agents; it does not replace classical ML scores.",
+        "You don’t need a Lakehouse to start — Fabric, Bedrock GraphRAG, and Palantir are parallel futures; mid-market teams still win by learning the pattern first.",
+        "Read the full companion chapter on Secure — constitution, living graph, and AI coworkers translated for operators who aren’t all-in on one vendor: https://secure.efortune.tech/guides/ai-maturity-databricks-shaped-future/"
       ],
       "sources": [
-        {"label": "Databricks — Genie One, Ontology, and Agents (Jun 2026)", "url": "https://www.databricks.com/blog/introducing-genie-one-genie-ontology-and-genie-agents"},
-        {"label": "Databricks — Unified context for AI coworkers (Jul 2026)", "url": "https://www.databricks.com/blog/unified-context-missing-layer-enterprise-ai-coworkers"},
-        {"label": "Databricks — UC Business Semantics / Metric Views (Apr 2026)", "url": "https://www.databricks.com/blog/redefining-semantics-data-layer-future-bi-and-ai"},
-        {"label": "Members — Secure library (paid)", "url": "https://secure.efortune.tech"}
+        {
+          "label": "Databricks — Genie One, Ontology, and Agents (Jun 2026)",
+          "url": "https://www.databricks.com/blog/introducing-genie-one-genie-ontology-and-genie-agents"
+        },
+        {
+          "label": "Databricks — Unified context for AI coworkers (Jul 2026)",
+          "url": "https://www.databricks.com/blog/unified-context-missing-layer-enterprise-ai-coworkers"
+        },
+        {
+          "label": "Databricks — UC Business Semantics / Metric Views (Apr 2026)",
+          "url": "https://www.databricks.com/blog/redefining-semantics-data-layer-future-bi-and-ai"
+        },
+        {
+          "label": "Secure — Databricks-shaped future chapter",
+          "url": "https://secure.efortune.tech/guides/ai-maturity-databricks-shaped-future/"
+        }
       ]
     },
     {
@@ -46,25 +70,49 @@
         "Recommendation for Authentik + Coolify: 1) NetBird 2) Headscale 3) Defguard only if connect-time MFA / gateway model outweighs mesh."
       ],
       "sources": [
-        {"label": "NetBird — how it works", "url": "https://docs.netbird.io/about-netbird/how-netbird-works"},
-        {"label": "NetBird — Authentik IdP", "url": "https://docs.netbird.io/selfhosted/identity-providers/authentik"},
-        {"label": "Defguard — architecture", "url": "https://docs.defguard.net/in-depth/architecture"},
-        {"label": "Headscale — features (stable)", "url": "https://headscale.net/stable/about/features/"},
-        {"label": "Headscale — OIDC / Authentik", "url": "https://headscale.net/0.27.1/ref/oidc/"}
+        {
+          "label": "NetBird — how it works",
+          "url": "https://docs.netbird.io/about-netbird/how-netbird-works"
+        },
+        {
+          "label": "NetBird — Authentik IdP",
+          "url": "https://docs.netbird.io/selfhosted/identity-providers/authentik"
+        },
+        {
+          "label": "Defguard — architecture",
+          "url": "https://docs.defguard.net/in-depth/architecture"
+        },
+        {
+          "label": "Headscale — features (stable)",
+          "url": "https://headscale.net/stable/about/features/"
+        },
+        {
+          "label": "Headscale — OIDC / Authentik",
+          "url": "https://headscale.net/0.27.1/ref/oidc/"
+        }
       ]
     },
     {
-      "heading": "Guarded AIOps — teaser only",
+      "heading": "Guarded AIOps — close the loop without flying blind",
       "bullets": [
-        "Public frame: the observability frontier is closing the loop from signal to explanation to guarded action — not unsupervised self-heal of unknown unknowns.",
-        "Durable bet (names only): assisted investigation, human/policy-gated remediation, and progressive delivery rollback — real before “fully autonomous ops.”",
-        "Concrete public anchors: OpenTelemetry Profiles public Alpha (experiment, not critical path); progressive delivery Analysis already rolls back without GenAI risk.",
-        "Paywall: Digest teases the loop. Self-heal ladders, vendor investigation matrices, and pilot playbooks stay on Secure — not here."
+        "The observability frontier isn’t another dashboard pack — it’s closing the loop from signal to explanation to guarded action, without unsupervised self-heal of unknown unknowns.",
+        "What durable teams bet on: assisted investigation, human/policy-gated remediation, and progressive delivery rollback — real before “fully autonomous ops.”",
+        "Public anchors worth watching: OpenTelemetry Profiles public Alpha (experiment, not critical path); progressive delivery Analysis already rolls back without GenAI risk.",
+        "Ready for the operating playbook behind that loop? Members get it on https://secure.efortune.tech — start with the observability series, then the guarded-action chapter."
       ],
       "sources": [
-        {"label": "OpenTelemetry — Profiles public Alpha (Mar 2026)", "url": "https://opentelemetry.io/blog/2026/profiles-alpha"},
-        {"label": "Argo Rollouts — progressive delivery", "url": "https://argoproj.github.io/argo-rollouts/"},
-        {"label": "Members — Secure library (paid)", "url": "https://secure.efortune.tech"}
+        {
+          "label": "OpenTelemetry — Profiles public Alpha (Mar 2026)",
+          "url": "https://opentelemetry.io/blog/2026/profiles-alpha"
+        },
+        {
+          "label": "Argo Rollouts — progressive delivery",
+          "url": "https://argoproj.github.io/argo-rollouts/"
+        },
+        {
+          "label": "Secure — member library",
+          "url": "https://secure.efortune.tech"
+        }
       ]
     },
     {
@@ -77,13 +125,28 @@
         "InfoQ: Grab LLM-Kit — 500+ internal agents; production wrapper hour vs weeks; MCP + multi-provider gateway."
       ],
       "sources": [
-        {"label": "TechCrunch — Salesforce + Nvidia Koa", "url": "https://techcrunch.com/2026/09/15/salesforce-and-nvidias-new-reasoning-model-is-everything-the-ai-labs-should-fear/"},
-        {"label": "BBC — Jack Clark on AI kill switches", "url": "https://www.bbc.com/news/articles/cqgk5e2j0gg8o"},
-        {"label": "TechCrunch — OpenAI buys Glass Imaging", "url": "https://techcrunch.com/2026/09/14/openai-buys-smartphone-camera-maker-glass-imaging-for-300-million-report-says/"},
-        {"label": "InfoWorld — better local LLMs with Ollama", "url": "https://www.infoworld.com/article/4218328/how-to-get-better-results-from-local-llms-with-ollama.html"},
-        {"label": "InfoQ — Grab LLM-Kit agent platform", "url": "https://www.infoq.com/news/2026/09/grab-agent-platform/"}
+        {
+          "label": "TechCrunch — Salesforce + Nvidia Koa",
+          "url": "https://techcrunch.com/2026/09/15/salesforce-and-nvidias-new-reasoning-model-is-everything-the-ai-labs-should-fear/"
+        },
+        {
+          "label": "BBC — Jack Clark on AI kill switches",
+          "url": "https://www.bbc.com/news/articles/cqgk5e2j0gg8o"
+        },
+        {
+          "label": "TechCrunch — OpenAI buys Glass Imaging",
+          "url": "https://techcrunch.com/2026/09/14/openai-buys-smartphone-camera-maker-glass-imaging-for-300-million-report-says/"
+        },
+        {
+          "label": "InfoWorld — better local LLMs with Ollama",
+          "url": "https://www.infoworld.com/article/4218328/how-to-get-better-results-from-local-llms-with-ollama.html"
+        },
+        {
+          "label": "InfoQ — Grab LLM-Kit agent platform",
+          "url": "https://www.infoq.com/news/2026/09/grab-agent-platform/"
+        }
       ]
     }
   ],
-  "bottomLine": "Dual-stack AI maturity: keep classical ML for scores; invest ontology/relationships where GenAI must be accountable — Digest teases; Starter Pack depth is on Secure. Treat Databricks’ Metric Views → Genie Ontology → coworkers story as a teachable pattern, not a single-vendor mandate. For WireGuard on Authentik + Coolify, lead with NetBird. Guarded AIOps: tease the gated loop; paid chapter stays behind the paywall."
+  "bottomLine": "Dual-stack AI maturity: keep classical ML for scores; invest ontology/relationships where GenAI must be accountable — then grab the Starter Pack on Secure. Treat Databricks’ Metric Views → Genie Ontology → coworkers story as a teachable pattern, not a single-vendor mandate. For WireGuard on Authentik + Coolify, lead with NetBird. Guarded AIOps: close the loop with gates; deepen on Secure when you’re ready to operate it."
 }
