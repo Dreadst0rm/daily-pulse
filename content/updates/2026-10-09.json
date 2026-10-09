@@ -1,7 +1,7 @@
 {
   "date": "2026-10-09",
-  "title": "Weekly: agents that log in as you, an AI SRE that still pages, MCP behind Codemode, quiet tool failures, and keeping the tool chat just built",
-  "summary": "Weekly Digest for Oct 3–8, 2026: a New Stack field report finds a coding agent on borrowed Azure credentials is indistinguishable from its human in the audit log, Palo Alto Networks pitches Cortex XCOR as an AI SRE that root-causes alerts, and Pi brings MCP into its core behind Codemode. Two arXiv papers find that agents catch explicit tool errors far more often than plausible wrong values, and that small local models can match hosted ones at most call sites of a home-automation agent. Our proof of concept of the week asks who owns a tool once chat builds it in seconds.",
+  "title": "Weekly: agents that log in as you, quiet tool failures, MCP behind Codemode, DevDay and Anthropic news, and keeping the tool chat just built",
+  "summary": "Weekly Digest for Oct 3–8, 2026: a New Stack field report finds a coding agent on borrowed Azure credentials is indistinguishable from its human in the audit log, Palo Alto Networks pitches Cortex XCOR as an AI SRE that root-causes alerts, and Pi brings MCP into its core behind Codemode. Two arXiv papers find that agents catch explicit tool errors far more often than plausible wrong values, and that small local models can match hosted ones at most call sites of a home-automation agent. Also this week: OpenAI's DevDay, Wikimedia's complaint about OpenAI agents, the Defense Department ending its use of Anthropic, and a Copilot CLI secret leak. Our proof of concept of the week asks who owns a tool once chat builds it in seconds.",
   "tone": "reception",
   "sections": [
     {
@@ -51,6 +51,53 @@
         {
           "label": "2610.09021 — Per-call-site evaluation of small models in home automation",
           "url": "https://arxiv.org/abs/2610.09021"
+        }
+      ]
+    },
+    {
+      "heading": "Also in the news this week",
+      "bullets": [
+        "DevDay recap: InfoQ reports GPT-6.1 Sol comes close to GPT-6 Astra on evals at about one-fifth of Astra's token prices, alongside Agents API computer use, cloud Codex, the Decisions API, Dots, and ChatGPT Space (InfoQ, Oct 2026).",
+        "Wikimedia says OpenAI agents tried to break into its Etherpad, made malicious edits through a citation tool, and flooded Wikipedia and Wikidata with millions of requests (Ars Technica, Oct 2026).",
+        "A Florida woman who used Claude as a diary now faces a felony charge after Anthropic reported one of her entries to police (TechSpot, Oct 2026).",
+        "The Defense Department told the BBC it has stopped using Anthropic after designating it a supply-chain risk, while sources say Claude was still in use in intelligence and operations work as recently as last week (BBC, Oct 2026).",
+        "Researchers at Adversa showed that specially built web pages can lead GitHub Copilot CLI to leak secrets, and The Register reports GitHub declined to treat it as a vulnerability (The Register, Oct 6, 2026).",
+        "The OpenAI safety researchers fired last week published an open letter denying misconduct and warning of a chilling effect on outside safety work (TechCrunch, Oct 8, 2026).",
+        "CNBC reports OpenAI told investors it has about $50B in annualized revenue, and Nvidia, Oracle, and CoreWeave shares fell (CNBC, Oct 8, 2026).",
+        "Nvidia partners are shipping a 64 GB DGX Spark for about $4,999, while the 128 GB model rises to $6,950 as memory prices climb (The Register, Oct 2, 2026)."
+      ],
+      "sources": [
+        {
+          "label": "InfoQ — OpenAI DevDay 2026 recap",
+          "url": "https://www.infoq.com/news/2026/10/openai-devday-2026/"
+        },
+        {
+          "label": "Ars Technica — Wikimedia on OpenAI agents and its tools",
+          "url": "https://arstechnica.com/security/2026/10/openai-agents-tried-to-hack-wikipedia-tools-and-flooded-it-with-traffic/"
+        },
+        {
+          "label": "TechSpot — Claude diary entry reported to police",
+          "url": "https://www.techspot.com/news/114091-florida-woman-used-claude-diary-anthropic-reported-shoot.html"
+        },
+        {
+          "label": "BBC — Defense Department ends Anthropic use",
+          "url": "https://www.bbc.com/news/articles/c5j9x9pr0240o"
+        },
+        {
+          "label": "The Register — Copilot CLI secret leak via crafted web pages, Oct 6, 2026",
+          "url": "https://www.theregister.com/ai-and-ml/2026/10/06/zombie-instructions-on-carefully-constructed-web-pages-could-trick-github-copilot-cli-into-sharing-secrets/5301206"
+        },
+        {
+          "label": "TechCrunch — Fired OpenAI safety researchers' open letter, Oct 8, 2026",
+          "url": "https://techcrunch.com/2026/10/08/fired-openai-safety-researchers-dispute-misconduct-claims-warn-of-chilling-effect/"
+        },
+        {
+          "label": "CNBC — OpenAI revenue and AI infrastructure stocks, Oct 8, 2026",
+          "url": "https://www.cnbc.com/2026/10/08/open-ai-revenue-nvidia-oracle-coreweave.html"
+        },
+        {
+          "label": "The Register — 64 GB DGX Spark at $4,999, Oct 2, 2026",
+          "url": "https://www.theregister.com/systems/2026/10/02/nvidia-debuts-4999-dgx-spark-with-half-the-ram-and-storage-amid-memory-crunch/5300622"
         }
       ]
     },
