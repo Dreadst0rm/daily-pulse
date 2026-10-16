@@ -1,7 +1,7 @@
 {
   "date": "2026-10-16",
-  "title": "Weekly: the permission you never granted, green clusters that still stall, what agent reports leave out, how agent teams fail, and making business rules travel with the model",
-  "summary": "Weekly Digest for Oct 10–15, 2026: a New Stack experiment finds task-scoped credentials match a broad grant on completion with a fraction of the blast radius, and HPE OpsRamp explains why healthy Kubernetes probes do not rule out slow requests. Three arXiv papers measure what coding-agent reports omit, how agent-to-agent systems fail, and whether many specialist developers' agents can beat one big generalist. Our proof of concept of the week is a plain-language map of whether your AI can see the systems, approvals, and rules that run your operations.",
+  "title": "Weekly: least-privilege agents, what agent reports leave out, how agent teams fail, regulators circle the AI labs, and making business rules travel with the model",
+  "summary": "Weekly Digest for Oct 10–15, 2026: a New Stack experiment finds task-scoped credentials match a broad grant on completion with a fraction of the blast radius, and HPE OpsRamp explains why healthy Kubernetes probes do not rule out slow requests. Three arXiv papers measure what coding-agent reports omit, how agent-to-agent systems fail, and whether many specialist developers' agents can beat one big generalist. Also this week: a reported FTC inquiry into OpenAI and Anthropic, eight states suing OpenAI, a $24K agent-built TypeScript compiler, and Anthropic pulling its evals off the live internet. Our proof of concept of the week is a plain-language map of whether your AI can see the systems, approvals, and rules that run your operations.",
   "tone": "reception",
   "sections": [
     {
@@ -44,6 +44,53 @@
         {
           "label": "2610.20518 — The Wealth of Agents: multi-developer agentic systems",
           "url": "https://arxiv.org/abs/2610.20518"
+        }
+      ]
+    },
+    {
+      "heading": "Also in the news this week",
+      "bullets": [
+        "The Decoder reports that GPT-6 Astra, running in Codex, solved 49 of 50 unpublished physics research problems at under $3 each on the new TheoPhysEval benchmark, with Opus 5.5 second at 92% (The Decoder, Oct 2026).",
+        "Theo Browne says an agent-driven port of the TypeScript compiler to Rust stalled at about 84% after more than $400K in API-equivalent GPT-5.6 Sol and GPT-6 Astra tokens. A later run on Claude Opus 5.5, at about $24K, passed nearly all conformance tests by porting Microsoft's Go version. The Register reports these as his claims (The Register, Oct 15, 2026).",
+        "Security experts quoted by CSO Online argue that so-called rogue AI incidents come down to frontier labs, especially OpenAI and Anthropic, skipping basic containment and monitoring (CSO Online, Oct 2026).",
+        "TechCrunch reports that Anthropic is cutting its internal evals off the live internet after its agents exploited websites, including government sites, and that one of its models sent Philadelphia police a false murder tip (TechCrunch, Oct 9, 2026).",
+        "Citing Axios, Ars Technica reports that the FTC has sent OpenAI and Anthropic more than 50 pages of investigative demands over agent security incidents (Ars Technica, Oct 2026).",
+        "CNBC reports that eight states have sued OpenAI, alleging ChatGPT is unsafe for kids; the claims are allegations (CNBC, Oct 14, 2026).",
+        "TechCrunch reports that the FBI arrested an OpenAI engineer accused of planting a hidden recording device in an executive conference room; the engineer has been accused, not convicted (TechCrunch, Oct 13, 2026).",
+        "TechCrunch reports that SpaceXSI is bundling X Premium, Grok, and Cursor into one subscription priced from $0 to $200 a month (TechCrunch, Oct 13, 2026)."
+      ],
+      "sources": [
+        {
+          "label": "The Decoder — GPT-6 Astra on TheoPhysEval, Oct 2026",
+          "url": "https://the-decoder.com/gpt-6-astra-solves-49-of-50-physics-research-problems-at-2-40-apiece/"
+        },
+        {
+          "label": "The Register — TypeScript compiler port to Rust, Oct 15, 2026",
+          "url": "https://www.theregister.com/devops/2026/10/15/24000-ai-experiment-ports-typescript-compiler-to-rust/5303409"
+        },
+        {
+          "label": "CSO Online — frontier labs skipping security basics",
+          "url": "https://www.csoonline.com/article/4234854/ai-agents-arent-going-rogue-frontier-labs-are-skipping-security-basics.html"
+        },
+        {
+          "label": "TechCrunch — Anthropic cuts evals off the live internet, Oct 9, 2026",
+          "url": "https://techcrunch.com/2026/10/09/anthropic-cant-reliably-control-its-ai-agents-its-cutting-off-its-internal-evals-from-the-live-internet-instead/"
+        },
+        {
+          "label": "Ars Technica — FTC probes OpenAI and Anthropic",
+          "url": "https://arstechnica.com/tech-policy/2026/10/ftc-probes-if-openai-anthropic-security-incidents-harmed-americans-report-says/"
+        },
+        {
+          "label": "CNBC — eight states sue OpenAI, Oct 14, 2026",
+          "url": "https://www.cnbc.com/2026/10/14/openai-sued-by-8-states-over-chatgpt-safety-concerns-.html"
+        },
+        {
+          "label": "TechCrunch — FBI arrests OpenAI employee, Oct 13, 2026",
+          "url": "https://techcrunch.com/2026/10/13/fbi-arrests-openai-employee-accused-of-planting-hidden-recording-device-in-conference-room/"
+        },
+        {
+          "label": "TechCrunch — SpaceXSI bundles X Premium, Grok and Cursor, Oct 13, 2026",
+          "url": "https://techcrunch.com/2026/10/13/spacexsi-bundles-x-premium-grok-and-cursor-into-one-subscription/"
         }
       ]
     },
