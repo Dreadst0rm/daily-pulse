@@ -20,7 +20,7 @@ npm run build
 npm run preview
 ```
 
-`npm run build` validates every update against the Zod schema in `src/content.config.ts`. Invalid JSON, missing fields, bad URLs, or a `date` that does not match the filename will fail the build.
+`npm run build` validates every update against the Zod schema in `src/content.config.ts`. Invalid JSON, missing fields, bad URLs, a `date` that does not match the filename, or a date that is not a real calendar day will fail the build.
 
 Optional local Docker (nginx on port 43180):
 
@@ -110,7 +110,7 @@ That writes a valid empty brief. Replace the placeholder copy. Do not invent liv
 
 | Field | Required | Notes |
 | --- | --- | --- |
-| `date` | yes | `YYYY-MM-DD`, must match the filename |
+| `date` | yes | Real `YYYY-MM-DD` calendar date, must match the filename |
 | `title` | yes | Non-empty string |
 | `summary` | yes | Short TL;DR |
 | `tone` | no | Short free string (for example `neutral`, `cautious`) |

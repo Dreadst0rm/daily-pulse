@@ -1,10 +1,11 @@
 import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
+import { isRealIsoDate } from "./lib/dates.mjs";
 
-const isoDate = z
-  .string()
-  .regex(/^\d{4}-\d{2}-\d{2}$/, "Use YYYY-MM-DD (example: 2026-09-06)");
+const isoDate = z.string().refine(isRealIsoDate, {
+  message: "Use a real YYYY-MM-DD calendar date (example: 2026-09-06)",
+});
 
 const sourceSchema = z.object({
   label: z.string().min(1),

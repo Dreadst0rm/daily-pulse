@@ -1,4 +1,5 @@
 import { getCollection, type CollectionEntry } from "astro:content";
+export { formatDisplayDate, updatePath } from "./dates.mjs";
 
 export type UpdateEntry = CollectionEntry<"updates">;
 
@@ -14,20 +15,4 @@ export async function getUpdates(): Promise<UpdateEntry[]> {
   }
 
   return entries.sort((a, b) => b.data.date.localeCompare(a.data.date));
-}
-
-export function formatDisplayDate(isoDate: string): string {
-  const [year, month, day] = isoDate.split("-").map(Number);
-  const date = new Date(Date.UTC(year, month - 1, day));
-  return new Intl.DateTimeFormat("en-US", {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    timeZone: "UTC",
-  }).format(date);
-}
-
-export function updatePath(date: string): string {
-  return `/updates/${date}/`;
 }
