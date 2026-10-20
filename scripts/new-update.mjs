@@ -5,19 +5,20 @@
  *        npm run new-update -- --date 2026-09-06
  *        npm run new-update -- --force
  */
-import { mkdir, writeFile, access } from "node:fs/promises";
+import { access, mkdir, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
+import { isRealIsoDate } from "../src/lib/dates.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const updatesDir = join(root, "content", "updates");
 
-function todayUtc() {
-  return new Date().toISOString().slice(0, 10);
+export function todayUtc(now = new Date()) {
+  return now.toISOString().slice(0, 10);
 }
 
-function parseArgs(argv) {
-  const args = { date: todayUtc(), force: false };
+export function parseArgs(argv, options = {}) {
+  const args = { date: options.today ?? todayUtc(), force: false, help: false };
   for (let i = 0; i < argv.length; i += 1) {
     const token = argv[i];
     if (token === "--date") {
@@ -33,6 +34,12 @@ function parseArgs(argv) {
       throw new Error(`Unknown argument: ${token}`);
     }
   }
+
+  if (!args.help && !isRealIsoDate(args.date)) {
+    const printed = JSON.stringify(args.date) ?? "undefined";
+    throw new Error(`--date must be a real YYYY-MM-DD calendar date (got ${printed})`);
+  }
+
   return args;
 }
 
@@ -84,13 +91,10 @@ Usage:
   npm run new-update -- --date 2026-09-06
   npm run new-update -- --force
 
+--date must be a real calendar day (YYYY-MM-DD).
 Writes content/updates/YYYY-MM-DD.json
 `);
     return;
-  }
-
-  if (!args.date || !/^\d{4}-\d{2}-\d{2}$/.test(args.date)) {
-    throw new Error(`--date must be YYYY-MM-DD (got ${JSON.stringify(args.date)})`);
   }
 
   await mkdir(updatesDir, { recursive: true });
@@ -107,7 +111,12 @@ Writes content/updates/YYYY-MM-DD.json
   console.log("Edit the file, then run: npm run build");
 }
 
-main().catch((error) => {
-  console.error(error instanceof Error ? error.message : error);
-  process.exit(1);
-});
+const isDirectRun =
+  process.argv[1] !== undefined && import.meta.url === pathToFileURL(process.argv[1]).href;
+
+if (isDirectRun) {
+  main().catch((error) => {
+    console.error(error instanceof Error ? error.message : error);
+    process.exit(1);
+  });
+}
