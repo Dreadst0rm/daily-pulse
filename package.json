@@ -10,7 +10,8 @@
     "build": "astro build",
     "preview": "astro preview --host 127.0.0.1 --port 43147",
     "astro": "astro",
-    "new-update": "node scripts/new-update.mjs"
+    "new-update": "node scripts/new-update.mjs",
+    "test": "node --experimental-strip-types --test"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.19",

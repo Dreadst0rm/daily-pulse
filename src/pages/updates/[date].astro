@@ -22,7 +22,12 @@ const newer = index > 0 ? updates[index - 1] : undefined;
 const older = updates[index + 1];
 ---
 
-<BaseLayout title={update.data.title} description={update.data.summary} current="update">
+<BaseLayout
+  title={update.data.title}
+  description={update.data.summary}
+  current="update"
+  published={update.data.date}
+>
   <UpdateArticle update={update} />
 
   <nav class="pager" aria-label="Adjacent updates">
