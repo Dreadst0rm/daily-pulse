@@ -2,6 +2,7 @@ import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 import { isRealIsoDate } from "./lib/dates.mjs";
+import { isHttpUrl } from "./lib/http-url.ts";
 
 const isoDate = z.string().refine(isRealIsoDate, {
   message: "Use a real YYYY-MM-DD calendar date (example: 2026-09-06)",
@@ -9,7 +10,9 @@ const isoDate = z.string().refine(isRealIsoDate, {
 
 const sourceSchema = z.object({
   label: z.string().min(1),
-  url: z.string().url(),
+  url: z.string().url().refine(isHttpUrl, {
+    message: "Source URL must use http or https",
+  }),
 });
 
 const sectionSchema = z.object({
