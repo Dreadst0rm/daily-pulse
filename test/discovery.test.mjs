@@ -1,13 +1,20 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { absoluteUrl, renderRobots, renderSitemap, resolveSite } from "../src/lib/discovery.ts";
+import {
+  absoluteUrl,
+  DEFAULT_SITE,
+  renderRobots,
+  renderSitemap,
+  resolveSite,
+} from "../src/lib/discovery.ts";
 
 const site = "https://digest.example.com";
 
 describe("resolveSite", () => {
   it("falls back to the local dev origin", () => {
-    assert.equal(resolveSite(undefined), "http://127.0.0.1:43147");
-    assert.equal(resolveSite("  "), "http://127.0.0.1:43147");
+    assert.equal(DEFAULT_SITE, "http://127.0.0.1:43147");
+    assert.equal(resolveSite(undefined), DEFAULT_SITE);
+    assert.equal(resolveSite("  "), DEFAULT_SITE);
   });
 
   it("accepts a URL object or a string and keeps a configured origin", () => {

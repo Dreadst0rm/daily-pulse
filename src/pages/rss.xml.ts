@@ -1,5 +1,6 @@
 import rss from "@astrojs/rss";
 import type { APIContext } from "astro";
+import { DEFAULT_SITE } from "../lib/discovery";
 import { site } from "../lib/site";
 import { getUpdates, updatePath } from "../lib/updates";
 
@@ -9,7 +10,7 @@ export async function GET(context: APIContext) {
   return rss({
     title: site.name,
     description: site.description,
-    site: context.site ?? "http://localhost:43147",
+    site: context.site ?? DEFAULT_SITE,
     items: updates.map((update) => ({
       title: update.data.title,
       description: update.data.summary,
