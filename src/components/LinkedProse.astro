@@ -1,0 +1,21 @@
+---
+import { linkifyProse } from "../lib/linkify.ts";
+
+interface Props {
+  text: string;
+}
+
+const parts = linkifyProse(Astro.props.text);
+---
+
+{
+  parts.map((part) =>
+    part.href ? (
+      <a href={part.href} rel="noopener noreferrer">
+        {part.text}
+      </a>
+    ) : (
+      part.text
+    )
+  )
+}
