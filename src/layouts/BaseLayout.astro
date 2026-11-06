@@ -58,18 +58,47 @@ const { pageTitle } = meta;
     />
     <script is:inline>
       (function () {
+        var theme = "light";
         try {
-          var key = "dd-theme";
-          var stored = localStorage.getItem(key);
-          var theme =
-            stored === "light" || stored === "dark"
-              ? stored
-              : window.matchMedia("(prefers-color-scheme: dark)").matches
-                ? "dark"
-                : "light";
-          document.documentElement.dataset.theme = theme;
+          var stored = localStorage.getItem("dd-theme");
+          if (stored === "light" || stored === "dark") theme = stored;
+          else if (window.matchMedia("(prefers-color-scheme: dark)").matches) theme = "dark";
         } catch (e) {
-          /* localStorage may be unavailable */
+          try {
+            if (window.matchMedia("(prefers-color-scheme: dark)").matches) theme = "dark";
+          } catch (e2) {
+            /* localStorage and matchMedia may be unavailable */
+          }
+        }
+
+        document.documentElement.dataset.theme = theme;
+
+        var color = theme === "dark" ? "#161310" : "#f1ece2";
+        var metas = document.querySelectorAll('meta[name="theme-color"]');
+        for (var i = metas.length - 1; i >= 0; i--) {
+          if (i === 0) {
+            metas[i].setAttribute("content", color);
+            metas[i].removeAttribute("media");
+          } else {
+            metas[i].parentNode.removeChild(metas[i]);
+          }
+        }
+
+        var label = "Switch to " + (theme === "dark" ? "light" : "dark") + " color scheme";
+        var pressed = theme === "dark" ? "true" : "false";
+        function syncToggle() {
+          var buttons = document.querySelectorAll("[data-theme-toggle]");
+          for (var n = 0; n < buttons.length; n++) {
+            buttons[n].setAttribute("aria-label", label);
+            if (buttons[n].hasAttribute("aria-pressed")) {
+              buttons[n].setAttribute("aria-pressed", pressed);
+            }
+          }
+        }
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", syncToggle);
+        } else {
+          syncToggle();
         }
       })();
     </script>

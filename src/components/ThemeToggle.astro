@@ -3,6 +3,7 @@
   class="theme-toggle"
   data-theme-toggle
   aria-label="Switch to dark color scheme"
+  aria-pressed="false"
 >
   <svg class="icon-moon" viewBox="0 0 16 16" aria-hidden="true">
     <path d="M13.5 9.4A5.6 5.6 0 0 1 6.6 2.5 5.7 5.7 0 1 0 13.5 9.4Z"></path>
@@ -17,14 +18,28 @@
 
 <script>
   const STORAGE_KEY = "dd-theme";
+  const THEME_COLOR = { light: "#f1ece2", dark: "#161310" } as const;
 
   function currentTheme(): "light" | "dark" {
     return document.documentElement.dataset.theme === "dark" ? "dark" : "light";
   }
 
+  function syncThemeColor(theme: "light" | "dark") {
+    const metas = document.querySelectorAll('meta[name="theme-color"]');
+    metas.forEach((meta, index) => {
+      if (index === 0) {
+        meta.setAttribute("content", THEME_COLOR[theme]);
+        meta.removeAttribute("media");
+      } else {
+        meta.remove();
+      }
+    });
+  }
+
   function syncButtons() {
     const theme = currentTheme();
     const next = theme === "dark" ? "light" : "dark";
+    syncThemeColor(theme);
     document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
       button.setAttribute("aria-label", `Switch to ${next} color scheme`);
       button.setAttribute("aria-pressed", String(theme === "dark"));
