@@ -33,7 +33,7 @@
       "bullets": [
         "Split the jobs: Authentik for Coolify dashboard SSO, Traefik forward-auth, and control-plane IdP; Logto for customer-facing product auth (CIAM) where Organizations / multi-tenant SaaS matter.",
         "Coolify named SSO today: Authentik, Clerk, Zitadel under Settings → OAuth (v4.3.0+). Generic OIDC is not a first-class settings card; Logto is not a named Coolify dashboard IdP — Coolify documents Logto as a one-click service (app auth), not as the Coolify login provider.",
-        "Authentik live for this stack: https://auth.efortune.tech. Coolify OAuth Authentik callback (exact): https://coolify.efortune.tech/auth/authentik/callback. Coolify Base URL = Authentik origin only (no /application/o/slug/).",
+        "Coolify OAuth Authentik callback is `{Coolify origin}/auth/authentik/callback`. Coolify Base URL is the Authentik origin only (no `/application/o/slug/`).",
         "Authentik Coolify wiring: confidential OAuth2/OIDC; scopes openid profile email (Coolify also requests goauthentik.io/api); bind access via Authentik policies/groups; MFA on Authentik flow; after accounts exist set Registration Allowed = off; keep break-glass local admin. Coolify matches by email only — no IdP group → Coolify role mapping.",
         "Dashboard SSO ≠ Traefik forward-auth: use Coolify’s Authentik OAuth card for login; use a separate Authentik proxy/forward-auth provider for protecting apps behind Traefik.",
         "Logto Pros: purpose-built CIAM, Organizations for multi-tenant SaaS, SDKs, social/passwordless, org RBAC templates. Cons: not a Coolify named SSO provider for the control plane; weaker fit for Traefik forward-auth / infra SSO patterns Authentik already owns here.",
@@ -104,14 +104,14 @@
     {
       "heading": "Coolify v4.3.19 — Sentinel-mandatory upgrade notes",
       "bullets": [
-        "Release: Coolify v4.3.19 published 2026-09-10 (GitHub tag by andrasbacsai). Prior instance notes: compose labels showed coolify.version=4.3.17; health check on 2026-09-10 recorded v4.3.18 “up to date” before this tag’s urgency applied.",
+        "Release: Coolify v4.3.19 published 2026-09-10 (GitHub tag by andrasbacsai). Anyone still on 4.3.18 or earlier should treat this as the upgrade target.",
         "Headline change (release notes call it “Breaking Changes (well not breaking, but kinda)”): Sentinel mandatory on regular Docker servers. Existing regular servers enabled automatically; enable/disable became read-only in UI and API. Stated reason: mandatory for upcoming features; “Sentinel will have a bigger responsibility.” Sentinel upgraded 0.0.22 → 1.0.1.",
         "What Sentinel is: coolify-sentinel container reporting server/container health (and optional CPU/memory metrics) to the Coolify instance. Not available on build servers or Docker Swarm servers.",
         "Upgrade urgency: if still on ≤4.3.18, plan the jump to 4.3.19 soon — you cannot leave Sentinel off on regular servers after this release, and upcoming features depend on it. Confirm Coolify URL reachable from each server and that Sentinel shows In Sync after upgrade.",
         "Other notable 4.3.19 items: Docker restart-limit settings (incl. API max_restart_count); team persistence / team picker on login; 2FA duplicate-submit / HTTP 419 fixes; SCP-style SSH Git custom usernames; Compose env files saved atomically; pull image-based Compose services before stop to cut downtime.",
         "Pros of upgrading: stays on supported path for upcoming Sentinel-dependent features; health/metrics path standardized; batch of 2FA/Git/Compose fixes.",
         "Cons / watchouts: loses ability to disable Sentinel on regular servers; ensure firewall/network allows Sentinel → Coolify URL; docs page still describes optional disable for older flows — treat v4.3.19 release notes as authoritative for upgraded instances.",
-        "Recommendation: upgrade from the previously noted v4.3.17/4.3.18 baseline to v4.3.19 on a maintenance window; back up instance + APP_KEY/.env first; verify Sentinel In Sync on each regular Docker server; leave metrics optional if you only need heartbeats."
+        "Recommendation: upgrade from 4.3.18 or earlier to v4.3.19 on a maintenance window; back up instance + APP_KEY/.env first; verify Sentinel In Sync on each regular Docker server; leave metrics optional if you only need heartbeats."
       ],
       "sources": [
         {
@@ -133,5 +133,5 @@
       ]
     }
   ],
-  "bottomLine": "AIOps: close the loop with assisted investigation and gated remediation — deepen on Secure when you’re ready to operate it. IdP: Authentik for Coolify/Traefik/control plane (auth.efortune.tech); Logto for customer Organizations/CIAM. Press: Grok Bot coverage validates the category but reviews flag shared-computer and audit gaps — use carefully. Coolify: move to v4.3.19; Sentinel is mandatory on regular servers."
+  "bottomLine": "AIOps: close the loop with assisted investigation and gated remediation — deepen on Secure when you’re ready to operate it. IdP: Authentik for Coolify/Traefik/control plane; Logto for customer Organizations/CIAM. Press: Grok Bot coverage validates the category but reviews flag shared-computer and audit gaps — use carefully. Coolify: move to v4.3.19; Sentinel is mandatory on regular servers."
 }

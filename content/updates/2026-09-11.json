@@ -32,7 +32,7 @@
     {
       "heading": "NetBird on Coolify \u2014 ops & recovery",
       "bullets": [
-        "Data durability: bind-mount outside Docker volume internals (e.g. /srv/netbird/netbird-data:/var/lib/netbird) \u2014 do not bind into /var/lib/docker/volumes/.../_data.",
+        "Data durability: bind-mount a host path outside Docker volume internals (for example `/data/netbird:/var/lib/netbird`) \u2014 do not bind into /var/lib/docker/volumes/.../_data.",
         "Healthchecks should verify DB files (store.db, 1dp.db) plus management HTTP \u2014 not TCP alone. Preserve NETBIRD_STORE_ENCRYPTION_KEY.",
         "Cloudflare must be DNS-only (grey cloud) for the NetBird hostname (gRPC + STUN/UDP 3478). Publish UDP 3478; ensure public TCP 443 to origin if CF IP allowlists block grey-cloud TLS.",
         "Prefer Coolify Domains UI for dashboard TLS; avoid hand-rolled Traefik labels that fight Coolify.",
@@ -68,7 +68,7 @@
         "Content is the source of truth: content/updates/YYYY-MM-DD.json (Zod-validated); daily work = append one file.",
         "Best Coolify deploy path: Dockerfile app (multi-stage build \u2192 static nginx on port 80), not a long-running Node SSR process.",
         "Set PUBLIC_SITE_URL to the public domain (e.g. https://digest.efortune.tech); auto-deploy on main.",
-        "Repo: dreadstorm/daily-pulse (Origin); WebAdmin publishes Research/Overheard payloads then triggers Coolify rebuild.",
+        "Publish a day by adding one JSON file and triggering a Coolify rebuild from the git source.",
         "If Coolify needs GitHub/GitLab, mirror Origin or deploy via image \u2014 verify git connectivity in Coolify UI."
       ],
       "sources": [

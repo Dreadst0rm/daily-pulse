@@ -38,8 +38,8 @@
       "heading": "Authentik SSO for Coolify (what to put where)",
       "bullets": [
         "Use Settings → OAuth → Authentik (named card), Coolify ≥ v4.3.0.",
-        "Redirect URI (both sides, exact): https://coolify.efortune.tech/auth/authentik/callback",
-        "Coolify Base URL: https://auth.efortune.tech (origin only — no /application/o/slug/).",
+        "Redirect URI (both sides): `{Coolify origin}/auth/authentik/callback`.",
+        "Coolify Base URL: the Authentik origin only — no `/application/o/slug/`.",
         "Authentik: Confidential OAuth2/OIDC client; scopes openid profile email; bind coolify-admins group; MFA on Authentik flow.",
         "After accounts exist: Coolify Registration Allowed = off; keep break-glass local admin password.",
         "Dashboard SSO ≠ Traefik forward-auth (different Authentik provider type)."
