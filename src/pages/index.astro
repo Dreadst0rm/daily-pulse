@@ -44,7 +44,7 @@ const archive = updates.slice(1);
     <h2 id="archive-heading">Earlier updates</h2>
     {
       archive.length > 0 ? (
-        <ol class="archive">
+        <ul class="archive">
           {archive.map((update) => (
             <li>
               <a class="card" href={updatePath(update.data.date)}>
@@ -56,7 +56,7 @@ const archive = updates.slice(1);
               </a>
             </li>
           ))}
-        </ol>
+        </ul>
       ) : (
         <p class="muted">No earlier updates. The archive will grow as new days are added.</p>
       )
