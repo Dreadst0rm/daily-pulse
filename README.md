@@ -117,7 +117,7 @@ That writes a valid empty brief. Replace the placeholder copy. Do not invent liv
 | `sections` | yes | At least one section |
 | `sections[].heading` | yes | Section title |
 | `sections[].bullets` | yes | At least one non-empty string |
-| `sections[].sources` | no | `{ label, url }` — `url` must be a valid URL |
+| `sections[].sources` | no | `{ label, url }` — `url` must be an `http` or `https` URL |
 | `bottomLine` | yes | Closing takeaway |
 
 **Verify**
