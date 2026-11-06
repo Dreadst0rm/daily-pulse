@@ -1,4 +1,5 @@
-const DEFAULT_SITE = "http://127.0.0.1:43147";
+/** Same origin as the default `site` in astro.config.mjs. */
+export const DEFAULT_SITE = "http://127.0.0.1:43147";
 
 export function resolveSite(site: string | URL | undefined): string {
   if (site instanceof URL) return site.href;
